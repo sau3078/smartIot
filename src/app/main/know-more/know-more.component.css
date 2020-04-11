@@ -1,0 +1,43 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.main-knowMore {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}
+.main-knowMore .card{
+    margin: 0.5%;
+    width: 31.3%;
+    box-shadow: 0 0 16px #efefef;
+    
+}
+
+.card img{
+    height: 200px;
+    object-position: center;
+}
+.card-body{
+    padding: 15px 20px 0;
+    min-height: 110px;
+}
+.card-body p{
+    color: #7f7f7f;
+}
+
+@media screen and (max-width:1024px){
+    .main-knowMore .card{
+        width: 47%;
+    }
+}
+@media (max-width: 767px) {
+    .main-knowMore .card{
+        width: 100%;
+        margin-top: 10px;
+    }
+    .discover{
+        margin: 0px 10px;
+    }
+  }

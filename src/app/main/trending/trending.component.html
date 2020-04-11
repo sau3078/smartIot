@@ -1,0 +1,20 @@
+<section>
+    <h2 class="text-center sect-head" >What's Trending</h2>
+
+    <div>
+
+
+      <ngx-slick-carousel class="carousel" 
+      #trendingSlickModal="slick-carousel" 
+      [config]="slideConfig" 
+     
+      >
+<div ngxSlickItem *ngFor="let slide of slides" class="slide">
+<img src="{{ slide.img }}" alt="" class="carousel-image" width="100%">
+
+</div>
+</ngx-slick-carousel>
+    </div>
+</section>
+
+

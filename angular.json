@@ -1,0 +1,490 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "smartIot": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/smartIot",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "node_modules/angular-bootstrap-md/assets/scss/bootstrap/bootstrap.scss",
+              "node_modules/angular-bootstrap-md/assets/scss/mdb.scss",
+              "node_modules/animate.css/animate.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/slick-carousel/slick/slick.scss",
+              "node_modules/slick-carousel/slick/slick-theme.scss",
+              "src/styles.css"
+            ],
+            "scripts": [
+              "node_modules/hammerjs/hammer.min.js",
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "node_modules/slick-carousel/slick/slick.min.js"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "smartIot:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "smartIot:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "smartIot:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/test.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.spec.json",
+            "karmaConfig": "karma.conf.js",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "tsconfig.app.json",
+              "tsconfig.spec.json",
+              "e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "e2e/protractor.conf.js",
+            "devServerTarget": "smartIot:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "smartIot:serve:production"
+            }
+          }
+        }
+      }
+    },
+    "vendorLogin": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/vendorLogin",
+      "sourceRoot": "projects/vendorLogin/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/vendorLogin",
+            "index": "projects/vendorLogin/src/index.html",
+            "main": "projects/vendorLogin/src/main.ts",
+            "polyfills": "projects/vendorLogin/src/polyfills.ts",
+            "tsConfig": "projects/vendorLogin/tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "projects/vendorLogin/src/favicon.ico",
+              "projects/vendorLogin/src/assets"
+            ],
+            "styles": [
+              "projects/vendorLogin/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/vendorLogin/src/environments/environment.ts",
+                  "with": "projects/vendorLogin/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "vendorLogin:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "vendorLogin:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "vendorLogin:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/vendorLogin/src/test.ts",
+            "polyfills": "projects/vendorLogin/src/polyfills.ts",
+            "tsConfig": "projects/vendorLogin/tsconfig.spec.json",
+            "karmaConfig": "projects/vendorLogin/karma.conf.js",
+            "assets": [
+              "projects/vendorLogin/src/favicon.ico",
+              "projects/vendorLogin/src/assets"
+            ],
+            "styles": [
+              "projects/vendorLogin/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/vendorLogin/tsconfig.app.json",
+              "projects/vendorLogin/tsconfig.spec.json",
+              "projects/vendorLogin/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/vendorLogin/e2e/protractor.conf.js",
+            "devServerTarget": "vendorLogin:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "vendorLogin:serve:production"
+            }
+          }
+        }
+      }
+    },
+    "dealerPortal": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/dealerPortal",
+      "sourceRoot": "projects/dealerPortal/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/dealerPortal",
+            "index": "projects/dealerPortal/src/index.html",
+            "main": "projects/dealerPortal/src/main.ts",
+            "polyfills": "projects/dealerPortal/src/polyfills.ts",
+            "tsConfig": "projects/dealerPortal/tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "projects/dealerPortal/src/favicon.ico",
+              "projects/dealerPortal/src/assets"
+            ],
+            "styles": [
+              "projects/dealerPortal/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/dealerPortal/src/environments/environment.ts",
+                  "with": "projects/dealerPortal/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "dealerPortal:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "dealerPortal:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "dealerPortal:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/dealerPortal/src/test.ts",
+            "polyfills": "projects/dealerPortal/src/polyfills.ts",
+            "tsConfig": "projects/dealerPortal/tsconfig.spec.json",
+            "karmaConfig": "projects/dealerPortal/karma.conf.js",
+            "assets": [
+              "projects/dealerPortal/src/favicon.ico",
+              "projects/dealerPortal/src/assets"
+            ],
+            "styles": [
+              "projects/dealerPortal/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/dealerPortal/tsconfig.app.json",
+              "projects/dealerPortal/tsconfig.spec.json",
+              "projects/dealerPortal/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/dealerPortal/e2e/protractor.conf.js",
+            "devServerTarget": "dealerPortal:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "dealerPortal:serve:production"
+            }
+          }
+        }
+      }
+    },
+    "vendorPortal": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/vendorPortal",
+      "sourceRoot": "projects/vendorPortal/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/vendorPortal",
+            "index": "projects/vendorPortal/src/index.html",
+            "main": "projects/vendorPortal/src/main.ts",
+            "polyfills": "projects/vendorPortal/src/polyfills.ts",
+            "tsConfig": "projects/vendorPortal/tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "projects/vendorPortal/src/favicon.ico",
+              "projects/vendorPortal/src/assets"
+            ],
+            "styles": [
+              "projects/vendorPortal/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/vendorPortal/src/environments/environment.ts",
+                  "with": "projects/vendorPortal/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "vendorPortal:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "vendorPortal:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "vendorPortal:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/vendorPortal/src/test.ts",
+            "polyfills": "projects/vendorPortal/src/polyfills.ts",
+            "tsConfig": "projects/vendorPortal/tsconfig.spec.json",
+            "karmaConfig": "projects/vendorPortal/karma.conf.js",
+            "assets": [
+              "projects/vendorPortal/src/favicon.ico",
+              "projects/vendorPortal/src/assets"
+            ],
+            "styles": [
+              "projects/vendorPortal/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/vendorPortal/tsconfig.app.json",
+              "projects/vendorPortal/tsconfig.spec.json",
+              "projects/vendorPortal/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/vendorPortal/e2e/protractor.conf.js",
+            "devServerTarget": "vendorPortal:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "vendorPortal:serve:production"
+            }
+          }
+        }
+      }
+    }},
+  "defaultProject": "smartIot"
+}

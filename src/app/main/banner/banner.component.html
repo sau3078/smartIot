@@ -1,0 +1,25 @@
+
+<section class="main-banner">
+
+
+  <div>
+
+
+    <ngx-slick-carousel class="carousel" 
+    #slickModal="slick-carousel" 
+    [config]="slideConfig" 
+   
+    >
+<div ngxSlickItem *ngFor="let slide of slides; let index=index" class="slide" style="position: relative;">
+<img src="{{ slide.img }}" alt="" class="carousel-image" width="100%">
+<div class="caption{{index+1}}">
+  <h2>{{slide.msg}}</h2>
+  <p>{{slide.txt}}</p>
+
+  <a href="#" class="brandbtn" tabindex="-1">Learn more</a>
+</div>
+</div>
+</ngx-slick-carousel>
+  </div>
+
+</section>

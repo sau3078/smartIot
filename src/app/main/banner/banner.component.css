@@ -1,0 +1,87 @@
+.main-banner{
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+::ng-deep .main-banner .slick-slide{
+    height: 94vh;
+}
+::ng-deep .main-banner .slick-dots{
+    bottom: -31px;
+}
+::ng-deep .main-banner .slick-dots li button:before{
+  font-size: 21px;
+  color: #004c86;
+}
+::ng-deep .main-banner .slick-dots li.slick-active button:before{
+opacity: 1;
+    color: #004c86;
+
+}
+
+
+
+
+
+
+
+h2{
+    margin: 0px;
+    padding: 0px;
+}
+p{
+    margin: 0px;
+    padding: 0px;
+}
+.carousel h2{
+  font-size: 60px;
+  font-weight: 700;
+  color: #fff;
+}
+.carousel p{
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+}
+.brandbtn{
+    font-size: 17px;
+    font-weight: 600;
+    margin-top: 20px;
+    color: #fff;
+    max-width: 140px;
+    padding: 17px 20px;
+    text-align: center;
+    overflow: hidden;
+    border: 1px solid #004c86;
+    display: inline-block;
+    z-index: 5;
+    background-color: #004c86;
+    transition: color .8s cubic-bezier(.165,.84,.44,1),border .8s cubic-bezier(.165,.84,.44,1);
+}
+.brandbtn:hover{
+    background-color: transparent;
+}
+.caption1{
+    position: absolute;
+    top: 15%;
+    left: 34%;
+    text-align: center; 
+}
+.caption2{
+    position: absolute;
+    top: 48%;
+    left: 34%;
+    text-align: right;
+}
+.caption3{
+    position: absolute;
+    top: 38%;
+    right: 4%;
+    text-align: right;
+}
+
+
+a:hover{
+    text-decoration: none;
+    color: #004c86;
+}
