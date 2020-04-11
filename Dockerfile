@@ -1,10 +1,12 @@
-### STAGE 1: Build ###
-FROM node:12.7-alpine AS build
+FROM node:alpine AS builder
+
 WORKDIR /app
-COPY package.json ./
-RUN npm install
+
 COPY . .
-RUN npm run build
-### STAGE 2: Run ###
-FROM nginx:1.17.1-alpine
-COPY --from=build /app/dist/aston-villa-app /usr/share/nginx/html
+
+RUN npm install && \
+    npm run build
+
+FROM nginx:alpine
+
+COPY --from=builder /app/dist/* /usr/share/nginx/html/
